@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="weatherService" class="org.jostho.monsoon.WeatherServiceImpl">
+		<property name="dao" ref="weatherDao"/>
+	</bean>	
+
+	<bean name="weatherDao" class="org.jostho.monsoon.WeatherDaoImpl">
+		<property name="weatherData">
+			<map>
+				<entry key="BLR" value="Cloudy, could be windy in the evening" />
+				<entry key="MAA" value="Hot humid conditions, with chances of shower" />
+				<entry key="HYD" value="Hot sunny day with temperature remaining high" />
+			</map>
+		</property>
+	</bean>	
+		
+</beans>

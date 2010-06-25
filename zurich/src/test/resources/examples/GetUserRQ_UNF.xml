@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <GetUserRQ xmlns="http://www.jostho.org/zurich">
+      <UserId>99</UserId>
+    </GetUserRQ>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

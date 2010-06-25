@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  
+  <bean name="userService" class="org.jostho.zurich.service.UserServiceImpl">
+    <property name="dao" ref="userDao"></property>
+  </bean>
+  
+  <bean name="userDao" class="org.jostho.zurich.dao.UserDaoImpl">
+    <property name="users">
+      <list>
+        <ref bean="identityDavid"/>
+        <ref bean="identityJason"/>        
+        <ref bean="identityJohn"/>
+      </list>
+    </property>
+  </bean>
+
+  <!-- Bourne Identity -->
+  <bean name="identityDavid" class="org.jostho.zurich.domain.User">
+    <property name="id" value="100" />
+    <property name="firstName" value="David" />
+    <property name="lastName" value="Webb" />
+    <property name="email" value="david.webb@zurich.com" />
+  </bean>    
+  <bean name="identityJason" class="org.jostho.zurich.domain.User">
+    <property name="id" value="101" />
+    <property name="firstName" value="Jason" />
+    <property name="lastName" value="Bourne" />    
+    <property name="email" value="jason.bourne@zurich.com" />
+  </bean>  
+  <bean name="identityJohn" class="org.jostho.zurich.domain.User">
+    <property name="id" value="102" />
+    <property name="firstName" value="John" />
+    <property name="lastName" value="Kane" />    
+    <property name="email" value="john.kane@zurich.com" />
+  </bean>
+  
+</beans>

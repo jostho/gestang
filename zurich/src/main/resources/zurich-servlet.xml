@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping">
+    <property name="mappings">
+      <props>
+        <prop key="{http://www.jostho.org/zurich}GetUserRQ">getUserEndpoint</prop>
+      </props>
+    </property>
+    <property name="interceptors">
+      <list>        
+        <ref bean="loggingInterceptor"/>
+        <ref bean="validatingInterceptor"/>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="loggingInterceptor" 
+    class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor">
+  </bean>
+
+  <bean id="validatingInterceptor" 
+    class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
+    <property name="schema" ref="getuserXsd"/>
+  </bean>
+
+  <bean id="getUserEndpoint" class="org.jostho.zurich.ws.GetUserEndpoint">
+    <constructor-arg ref="userService"/>
+    <constructor-arg ref="jaxb2Marshaller"/>    
+  </bean>
+  
+  <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+    <property name="classesToBeBound">
+      <list>
+        <value>org.jostho.zurich.jaxb.GetUserRQ</value>
+        <value>org.jostho.zurich.jaxb.GetUserRS</value>                
+        <value>org.jostho.zurich.jaxb.UserType</value>
+      </list>
+    </property>
+    <property name="schema" ref="getuserXsd"/>
+  </bean>
+
+  <bean id="exceptionResolver" 
+    class="org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver">
+    <property name="defaultFault" value="SERVER" />
+    <property name="exceptionMappings">
+      <props>
+        <prop key="org.jostho.zurich.exception.UserNotFoundException">CLIENT</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="getuser" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+    <property name="schema">  
+      <bean id="schema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" ref="getuserXsd"/>
+      </bean>    
+    </property>
+    <property name="portTypeName" value="Zurich"/>
+    <property name="locationUri" value="http://localhost:8080/zurich/"/>
+    <property name="requestSuffix" value="RQ"/>
+    <property name="responseSuffix" value="RS"/>        
+  </bean>
+
+  <bean id="getuserXsd" class="java.lang.String">
+    <constructor-arg>
+      <value>classpath:org/jostho/zurich/GetUser.xsd</value>
+    </constructor-arg>
+  </bean>
+      
+</beans>

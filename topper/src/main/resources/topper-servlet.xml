@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <property name="mappings">
+      <props>
+        <prop key="/home.html">homeController</prop>
+        <prop key="/search.html">searchController</prop>
+        <prop key="/edit.html">editController</prop>
+        <prop key="/delete.html">deleteController</prop>        
+      </props>
+    </property>
+  </bean>
+      
+  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>    
+    <property name="prefix" value="/WEB-INF/jsp/"/>
+    <property name="suffix" value=".jsp"/>
+  </bean>
+
+  <bean name="homeController" class="org.jostho.topper.web.HomeController"/>
+  
+  <bean name="searchController" class="org.jostho.topper.web.SearchController">
+    <property name="manager" ref="employeeManager"></property>
+  </bean>
+  
+  <bean name="deleteController" class="org.jostho.topper.web.DeleteController">
+    <property name="manager" ref="employeeManager"></property>
+  </bean>
+  
+  <bean name="editController" class="org.jostho.topper.web.EditController">
+    <property name="formView" value="edit" />
+    <property name="successView" value="success" />
+    <property name="commandName" value="employee"/>
+    <property name="commandClass" value="org.jostho.topper.domain.Employee"/>   
+    <property name="manager" ref="employeeManager" />    
+    <property name="dateEditor" ref="dateEditor"/>         
+  </bean>
+
+  <bean name="dateEditor"
+    class="org.springframework.beans.propertyeditors.CustomDateEditor">
+    <constructor-arg >
+      <bean class="java.text.SimpleDateFormat">
+        <constructor-arg><value>yyyy-MM-dd</value></constructor-arg>
+      </bean>
+    </constructor-arg>
+    <constructor-arg ><value>true</value></constructor-arg>
+  </bean>
+
+  <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <property name="defaultErrorView" value="error"/>
+    <property name="exceptionMappings">
+      <props>
+        <prop key="EmployeeNotFoundException">notfound</prop>
+      </props>
+    </property>
+  </bean>
+    
+</beans>

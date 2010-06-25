@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <ns2:GetUserRS xmlns:ns2="http://www.jostho.org/zurich">
+      <ns2:User>
+        <ns2:UserId>101</ns2:UserId>
+        <ns2:FirstName>Jason</ns2:FirstName>        
+        <ns2:LastName>Bourne</ns2:LastName>
+        <ns2:Email>jason.bourne@zurich.com</ns2:Email>
+      </ns2:User>
+    </ns2:GetUserRS>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

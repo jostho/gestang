@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  
+  <bean name="userManager" class="org.jostho.houston.manager.UserManagerImpl">
+    <property name="dao" ref="userDao"></property>
+  </bean>
+  
+  <bean name="userDao" class="org.jostho.houston.dao.UserDaoImpl">
+    <property name="users">
+      <list>
+        <ref bean="identityDavid"/>
+        <ref bean="identityJason"/>        
+        <ref bean="identityJohn"/>
+      </list>
+    </property>
+  </bean>
+
+  <!-- Bourne Identity -->
+  <bean name="identityDavid" class="org.jostho.houston.domain.User">
+    <property name="id" value="100" />
+    <property name="name" value="David Webb" />
+    <property name="email" value="david.webb@houston.com" />
+  </bean>    
+  <bean name="identityJason" class="org.jostho.houston.domain.User">
+    <property name="id" value="101" />
+    <property name="name" value="Jason Charles Bourne" />
+    <property name="email" value="jason.bourne@houston.com" />
+  </bean>  
+  <bean name="identityJohn" class="org.jostho.houston.domain.User">
+    <property name="id" value="102" />
+    <property name="name" value="John Michael Kane" />
+    <property name="email" value="john.kane@houston.com" />
+  </bean>
+  
+</beans>

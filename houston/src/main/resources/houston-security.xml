@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+    <http auto-config="true" >
+
+    	<intercept-url pattern="/login.jsp*" filters="none" />     	 
+    	
+        <intercept-url pattern="/profile.do" access="ROLE_USER" />
+        <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+        <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        
+        <form-login login-page="/login.jsp" login-processing-url="/login" 
+        	default-target-url="/profile.do" authentication-failure-url="/login.jsp?login_error=1"/>
+        <logout logout-url="/logout" />
+
+        <!-- All of this is unnecessary if auto-config="true"
+        <form-login />
+        <anonymous />
+        <http-basic />
+        <logout />
+        <remember-me /> -->
+
+        <!-- Uncomment to limit the number of sessions a user can have
+        <concurrent-session-control max-sessions="1" exception-if-maximum-exceeded="true"/>
+		-->		
+    </http>
+
+    <authentication-manager>
+      <authentication-provider>
+        <password-encoder hash="md5"/> 
+        <user-service>
+            <!-- credentials are  jason/jason123  john/john123  david/david123  -->
+            <user name="jason" password="acc0aa297d5bbd540006807c57c0affb" authorities="ROLE_ADMIN, ROLE_USER" />             
+	        <user name="john" password="6e0b7076126a29d5dfcbd54835387b7b" authorities="ROLE_USER" />              
+	        <user name="david" password="55fc5b709962876903785fd64a6961e5" authorities="ROLE_USER" />
+	    </user-service>
+	  </authentication-provider>
+    </authentication-manager>
+ 
+
+</beans:beans>

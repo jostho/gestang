@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  
+  <bean name="employeeManager" class="org.jostho.topper.manager.EmployeeManagerImpl">
+    <!-- use 'employeeDao' for spring-jdbc DAO impl -->
+    <!-- use 'hibernateEmployeeDao' for hibernate DAO impl -->
+    <property name="dao" ref="employeeDao"></property>
+  </bean>
+
+  <!-- DAO using spring jdbc  -->
+  
+  <bean name="employeeDao" class="org.jostho.topper.dao.EmployeeDaoImpl">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="pscFactory" ref="pscFactory"/>
+    <property name="keyHolder" ref="keyHolder"/>
+    
+    <property name="selectSql">
+      <value><![CDATA[SELECT * FROM employees WHERE id = ?]]></value> 
+    </property>
+    <property name="selectAllSql">
+      <value><![CDATA[SELECT * FROM employees]]></value> 
+    </property>
+    <property name="updateSql">
+      <value>
+      <![CDATA[UPDATE employees set first_name=?, last_name=?, email=?, designation=?, date_of_joining=? where id=?]]>
+      </value> 
+    </property>
+    <property name="deleteSql">
+      <value><![CDATA[DELETE from employees where id=?]]></value> 
+    </property>
+  </bean>
+  
+  <bean name="pscFactory" class="org.springframework.jdbc.core.PreparedStatementCreatorFactory">
+    <constructor-arg>
+      <value><![CDATA[INSERT INTO employees (first_name, last_name, email, designation, date_of_joining) VALUES (?, ?, ?, ?, ?)]]></value>
+    </constructor-arg>
+    <!-- java.sql.Types values for jdbc types -->
+    <constructor-arg>
+      <value>12,12,12,12,91</value>
+    </constructor-arg>
+    <property name="returnGeneratedKeys" value="true"/>
+  </bean>
+  
+  <bean name="keyHolder" class="org.springframework.jdbc.support.GeneratedKeyHolder">
+  </bean>
+
+  <!-- DAO using hibernate  -->
+  
+  <bean name="hibernateEmployeeDao" class="org.jostho.topper.dao.HibernateEmployeeDaoImpl" lazy-init="true">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" lazy-init="true">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="mappingResources">
+      <list>
+        <value>org/jostho/topper/domain/employee.hbm.xml</value>
+      </list>
+    </property>
+    <property name="hibernateProperties">
+      <value>
+        hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
+        hibernate.show_sql=false
+      </value>
+    </property>
+  </bean>
+  
+</beans>
