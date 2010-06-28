@@ -13,7 +13,8 @@ All projects requires maven 2 to build. The dependencies are pulled from the
 m2 central repository. Make sure you are connected to the network, when doing 
 the first build. See the README for each project in the sources.
 
-Import the projects into eclipse (import > existing projects into workspace). 
+To setup the workspace for eclipse, run 'mvn eclipse:eclipse'. Then, import 
+the projects into eclipse (import > existing projects into workspace). 
 You may also need to set the M2_REPO classpath variable (pointing to your 
 local maven2 repository) to get started. 
 
