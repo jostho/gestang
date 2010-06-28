@@ -204,7 +204,7 @@
     </dependency>
   </dependencies>
   <properties>
-    <spring.version>3.0.0.RELEASE</spring.version>
+    <spring.version>3.0.3.RELEASE</spring.version>
     <jstl.version>1.1.2</jstl.version>
     <hibernate.version>3.2.7.ga</hibernate.version>
     <mysql.connector.version>5.1.10</mysql.connector.version>
