@@ -119,6 +119,6 @@
   </dependencies>
   <properties>
     <spring.version>2.5.6</spring.version>
-    <spring-ws.version>1.5.8</spring-ws.version>
+    <spring-ws.version>1.5.9</spring-ws.version>
   </properties>
 </project>
