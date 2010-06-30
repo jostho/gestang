@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd "> 
 
 	<bean name="weatherService" class="org.jostho.monsoon.WeatherServiceImpl">
 		<property name="dao" ref="weatherDao"/>
@@ -11,18 +13,10 @@
 		<property name="dataSource" ref="dataSource"/>
 	</bean>	
 
-    <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="${jdbc.driverClassName}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-    </bean>
-
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-	    <property name="locations">
-	        <value>classpath:jdbc.properties</value>
-	    </property>
-	</bean>
+	<!-- embedded h2 db -->
+	<jdbc:embedded-database id="dataSource" type="H2">
+		<jdbc:script location="classpath:monsoon.sql"/>
+	</jdbc:embedded-database>
 
 	<!-- proxy to introduce interceptors -->
 	<bean id="weatherServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">	  
