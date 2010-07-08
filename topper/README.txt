@@ -29,8 +29,9 @@ then point the browser @ http://localhost:8080/topper/
 
 Database
 ----------
-The employee data is persisted in mysql database. Setup topper database using 
-the script here - src/main/resources/topper.sql . 
+The employee data is persisted in a database. You can choose between mysql 
+or postgresql. Setup topper database using the script here - 
+src/main/resources/topper.sql . 
 
 For running tests, an H2 embedded DB is used. See the configuration here -
 src/test/resources/test-topper-datasource.xml .  
@@ -38,12 +39,16 @@ src/test/resources/test-topper-datasource.xml .
 
 Tomcat
 --------
-Copy mysql connector (mysql-connector-java-5.1.10.jar) to $TOMCAT_HOME/lib .
+Copy jdbc driver to to $TOMCAT_HOME/lib .
+ * mysql-connector-java-5.1.10.jar (for mysql)
+ * postgresql-8.4-701.jdbc4.jar (for postgresql)
 
 Jetty
 -------
-Copy the below 3 jars to $JETTY_HOME/lib
- * mysql-connector-java-5.1.10-bin.jar
+Copy jdbc driver to to $TOMCAT_HOME/lib .
+ * mysql-connector-java-5.1.10.jar (for mysql)
+ * postgresql-8.4-701.jdbc4.jar (for postgresql)
+Also copy the below 2 jars to $JETTY_HOME/lib
  * commons-dbcp-1.2.2.jar
  * commons-pool-1.5.4.jar
 Start Jetty with plusConfig enabled. 
