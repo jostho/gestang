@@ -1,5 +1,9 @@
 -- topper.sql
--- database: mysql 5.1.32
+-- supports both mysql and postgresql
+
+-- 
+-- database: mysql 5.1
+-- 
 
 -- create DB 
 CREATE DATABASE topper;
@@ -10,7 +14,8 @@ GRANT ALL PRIVILEGES ON topper.* TO topper@localhost IDENTIFIED BY 't0pper';
 -- connect to topper DB
 -- $ mysql -u topper -pt0pper topper 
 
--- create employees table  
+-- create employees table 
+-- mysql version 
 CREATE TABLE employees (
   id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(20),
@@ -20,8 +25,35 @@ CREATE TABLE employees (
   date_of_joining date
 ) engine=InnoDB;
 
--- drop employees table
-DROP TABLE employees ;
+
+-- 
+-- database: postgresql 8.4
+-- 
+
+-- create user
+-- $ createuser -d -P topper
+
+-- create db
+-- $ createdb -O topper topper
+
+-- connect to topper DB
+-- $ psql -W -U topper topper
+
+-- create employees table
+-- postgresql version
+CREATE TABLE employees (
+  id SERIAL NOT NULL PRIMARY KEY,
+  first_name VARCHAR(20),
+  last_name VARCHAR(20),
+  email VARCHAR(60),
+  designation VARCHAR(60),
+  date_of_joining date
+) ;
+
+
+-- 
+-- CRUD operations (mysql/postgresql)
+-- 
 
 -- insert data 
 INSERT INTO employees (first_name, last_name, email, designation, date_of_joining) 
@@ -46,3 +78,8 @@ UPDATE employees
 
 -- delete  
 DELETE from employees where id=8 ;  
+
+
+-- drop employees table
+DROP TABLE employees ;
+
