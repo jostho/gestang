@@ -15,20 +15,20 @@
     </layout>
   </appender>
 
-  <appender name="WebFileAppender" 
+  <appender name="SpringFileAppender" 
     class="org.apache.log4j.DailyRollingFileAppender">
     <param name="DatePattern" value="'.'yyyy-MM-dd" />
-    <param name="File" value="${@SERVER_NAME@.home}/logs/topper-web.log" />
+    <param name="File" value="${@SERVER_NAME@.home}/logs/topper-spring.log" />
     <param name="Append" value="true" />
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%d %-5p %t [%c] %m%n" />
     </layout>
   </appender>
 
-  <appender name="OrmFileAppender" 
+  <appender name="HibernateFileAppender" 
     class="org.apache.log4j.DailyRollingFileAppender">
     <param name="DatePattern" value="'.'yyyy-MM-dd" />
-    <param name="File" value="${@SERVER_NAME@.home}/logs/topper-orm.log" />
+    <param name="File" value="${@SERVER_NAME@.home}/logs/topper-hibernate.log" />
     <param name="Append" value="true" />
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%d %-5p %t [%c] %m%n" />
@@ -42,12 +42,16 @@
   
   <category name="org.springframework.web" additivity="false">
     <priority value="debug" />
-    <appender-ref ref="WebFileAppender" />
+    <appender-ref ref="SpringFileAppender" />
+  </category>
+  <category name="org.springframework.jdbc" additivity="false">
+    <priority value="debug" />
+    <appender-ref ref="SpringFileAppender" />
   </category>
 
   <category name="org.hibernate" additivity="false">
     <priority value="debug" />
-    <appender-ref ref="OrmFileAppender" />
+    <appender-ref ref="HibernateFileAppender" />
   </category>
   
   <root>
