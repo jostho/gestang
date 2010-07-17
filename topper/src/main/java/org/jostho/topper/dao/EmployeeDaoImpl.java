@@ -17,8 +17,27 @@ public class EmployeeDaoImpl extends AbstractEmployeeDao implements EmployeeDao 
 		Object[] args = getArgsForInsert(employee) ;
 		int rowsAffected = jdbcTemplate.update(pscFactory.newPreparedStatementCreator(args), keyHolder) ;
 		
+		/*
+		 * keyHolder.getKeyList() behaves differently with mysql & postgresql.
+		 * DAO will need to handle this difference 
+		 * 
+		 * mysql - [{GENERATED_KEY=10}]
+		 * h2 - [{SCOPE_IDENTITY()=10}]
+		 * postgresql - [{id=11, first_name=Robert, last_name=Ludlum, ...]
+		 * 
+		 * See code for GeneratedKeyHolder.java to understand this
+		 * 
+		 */
+		
 		if(rowsAffected > 0) {
-			return keyHolder.getKey().intValue();	
+			if(keyHolder.getKeyList().size() == 1 && keyHolder.getKeyList().get(0).size() > 1) {				
+				// postgresql path				
+				Number generatedId = (Number) keyHolder.getKeyList().get(0).get("id") ;
+				return generatedId.intValue() ;
+			} else {
+				// mysql / h2 path
+				return keyHolder.getKey().intValue();
+			}
 		} else {
 			return rowsAffected;
 		}

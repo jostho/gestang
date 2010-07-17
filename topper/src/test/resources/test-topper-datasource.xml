@@ -13,7 +13,7 @@
   </jdbc:embedded-database>
 
 
-  <!-- uncomment for mysql db. mysqld needs to be running -->
+  <!-- uncomment for a pure database. mysql/postgresql needs to be running -->
   <!--  
   <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
 	<property name="driverClassName" value="${jdbc.driverClassName}"/>

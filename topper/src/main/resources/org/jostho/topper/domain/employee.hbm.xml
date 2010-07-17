@@ -5,7 +5,12 @@
 <hibernate-mapping package="org.jostho.topper.domain">
   <class name="Employee" table="employees">
     <id name="id" column="id">
-      <generator class="native"></generator>
+      <generator class="native">
+        <!-- for postgresql -->
+        <!--  
+        <param name="sequence">employees_id_seq</param>
+        -->
+      </generator>
     </id>
 
     <property name="firstName" column="first_name"></property>

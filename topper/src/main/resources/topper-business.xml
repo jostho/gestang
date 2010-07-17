@@ -61,12 +61,6 @@
         <value>org/jostho/topper/domain/employee.hbm.xml</value>
       </list>
     </property>
-    <property name="hibernateProperties">
-      <value>
-        hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
-        hibernate.show_sql=false
-      </value>
-    </property>
   </bean>
   
 </beans>

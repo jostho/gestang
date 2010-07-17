@@ -1,8 +1,19 @@
 <Context>
 
+  <!--  mysql  -->
   <Resource 
     name="jdbc/TopperDS" auth="Container" type="javax.sql.DataSource"
-    username="topper" password="t0pper" url="jdbc:mysql://localhost:3306/topper"
+    username="topper" password="t0pper" 
+    url="jdbc:mysql://localhost:3306/topper"
     driverClassName="com.mysql.jdbc.Driver" />
 
+  <!--  postgresql  -->
+  <!--    
+  <Resource 
+    name="jdbc/TopperDS" auth="Container" type="javax.sql.DataSource"
+    username="topper" password="t0pper" 
+    url="jdbc:postgresql://localhost:5432/topper"
+    driverClassName="org.postgresql.Driver" /> 
+  -->
+    
 </Context>

@@ -7,8 +7,16 @@
 		<Arg>jdbc/TopperDS</Arg>
 		<Arg>
 			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<!--  mysql  -->				  
 				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
 				<Set name="url">jdbc:mysql://localhost:3306/topper</Set>
+								
+				<!--  postgresql  -->				
+				<!--
+				<Set name="driverClassName">org.postgresql.Driver</Set>
+				<Set name="url">jdbc:postgresql://localhost:5432/topper</Set>
+				-->
+												
 				<Set name="username">topper</Set>
 				<Set name="password">t0pper</Set>
 			</New>
