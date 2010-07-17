@@ -11,7 +11,6 @@ Environment
   * tomcat 6.0 / jetty 6.1 
   * eclipse 3.5 (galileo)
   * maven 2.0
-  * firefox 3.5  
   
   
 Build
