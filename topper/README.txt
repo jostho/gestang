@@ -44,7 +44,7 @@ Copy jdbc driver to to $TOMCAT_HOME/lib .
 
 Jetty
 -------
-Copy jdbc driver to to $TOMCAT_HOME/lib .
+Copy jdbc driver to to $JETTY_HOME/lib .
  * mysql-connector-java-5.1.10.jar (for mysql)
  * postgresql-8.4-701.jdbc4.jar (for postgresql)
 Also copy the below 2 jars to $JETTY_HOME/lib
