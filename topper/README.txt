@@ -39,16 +39,16 @@ src/test/resources/test-topper-datasource.xml .
 Tomcat
 --------
 Copy jdbc driver to to $TOMCAT_HOME/lib .
- * mysql-connector-java-5.1.10.jar (for mysql)
- * postgresql-8.4-701.jdbc4.jar (for postgresql)
+ * mysql-connector-java-5.1.14.jar (for mysql)
+ * postgresql-8.4-702.jdbc4.jar (for postgresql)
 
 Jetty
 -------
 Copy jdbc driver to to $JETTY_HOME/lib .
- * mysql-connector-java-5.1.10.jar (for mysql)
- * postgresql-8.4-701.jdbc4.jar (for postgresql)
+ * mysql-connector-java-5.1.14.jar (for mysql)
+ * postgresql-8.4-702.jdbc4.jar (for postgresql)
 Also copy the below 2 jars to $JETTY_HOME/lib
- * commons-dbcp-1.2.2.jar
+ * commons-dbcp-1.4.jar
  * commons-pool-1.5.4.jar
 Start Jetty with plusConfig enabled. 
 
