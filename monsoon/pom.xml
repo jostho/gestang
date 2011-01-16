@@ -39,17 +39,17 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.7</version>
+      <version>4.8.2</version>
       <scope>test</scope>
     </dependency>    
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
-      <version>1.2.138</version>
+      <version>1.2.147</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
   <properties>
-    <spring.version>3.0.3.RELEASE</spring.version>
+    <spring.version>3.0.5.RELEASE</spring.version>
   </properties>
 </project>

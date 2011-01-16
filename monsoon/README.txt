@@ -16,7 +16,7 @@ Dependencies
 -------------
 The dependencies are pulled from m2 central repository.
   1. spring 3.0
-  2. junit 4.7  
+  2. junit 4.8  
   3. log4j 1.2.14 
 
 
