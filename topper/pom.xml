@@ -58,8 +58,8 @@
       </plugin>
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
-        <artifactId>maven-jetty-plugin</artifactId>
-        <version>6.1.24</version>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>7.2.2.v20101205</version>
         <configuration>
           <systemProperties>
             <systemProperty>
@@ -83,6 +83,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.connector.version}</version>
           </dependency>
+          <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.connector.version}</version>
+        </dependency>
         </dependencies>
       </plugin>
     </plugins>

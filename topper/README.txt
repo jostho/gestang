@@ -7,7 +7,7 @@ Topper is a webapp to demonstrate a simple spring webmvc application.
 Environment
 -------------
   * jdk 1.6.0
-  * tomcat 6.0 / jetty 6.1 
+  * tomcat 6.0 / jetty 7.2 
   * mysql 5.1 / postgresql 8.4   
   * eclipse 3.5 (galileo)
   * maven 2.0
@@ -22,8 +22,8 @@ To build the app, use
 $ mvn    
 
 To run the webapp, copy topper.war to webapps folder in tomcat / jetty. 
-Else run it using the maven plugin ('mvn tomcat:run' OR 'mvn jetty:run') and 
-then point the browser @ http://localhost:8080/topper/
+Else run it using the maven plugin - 'mvn tomcat:run' (OR 'mvn jetty:run') 
+and then point the browser @ http://localhost:8080/topper/ (OR http://localhost:8080/)
  
 
 Database
@@ -44,13 +44,13 @@ Copy jdbc driver to to $TOMCAT_HOME/lib .
 
 Jetty
 -------
-Copy jdbc driver to to $JETTY_HOME/lib .
+Copy jdbc driver to to $JETTY_HOME/lib/ext .
  * mysql-connector-java-5.1.14.jar (for mysql)
  * postgresql-8.4-702.jdbc4.jar (for postgresql)
-Also copy the below 2 jars to $JETTY_HOME/lib
+Also copy the below 2 jars to $JETTY_HOME/lib/ext
  * commons-dbcp-1.4.jar
  * commons-pool-1.5.4.jar
-Start Jetty with plusConfig enabled. 
+Start Jetty with 'ext,plus,annotations' options enabled. 
 
 TODO
 -----------  

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
 
-<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
 
-	<New id="TopperDS" class="org.mortbay.jetty.plus.naming.Resource">
+	<New id="TopperDS" class="org.eclipse.jetty.plus.jndi.Resource">
 		<Arg>jdbc/TopperDS</Arg>
 		<Arg>
 			<New class="org.apache.commons.dbcp.BasicDataSource">
