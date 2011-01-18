@@ -50,7 +50,8 @@ Copy jdbc driver to to $JETTY_HOME/lib/ext .
 Also copy the below 2 jars to $JETTY_HOME/lib/ext
  * commons-dbcp-1.4.jar
  * commons-pool-1.5.4.jar
-Start Jetty with 'ext,plus,annotations' options enabled. 
+Start Jetty with 'ext,plus,annotations' options enabled 
+and 'etc/jetty-plus.xml' config file in start.ini. 
 
 TODO
 -----------  
