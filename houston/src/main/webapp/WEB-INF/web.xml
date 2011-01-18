@@ -9,7 +9,7 @@
   
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:houston-*.xml</param-value>    
+    <param-value>classpath:houston-servlet.xml classpath:houston-business.xml classpath:houston-security.xml</param-value>    
   </context-param>
 
   <listener>

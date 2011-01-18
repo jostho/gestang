@@ -8,7 +8,7 @@ spring security.
 Environment
 -------------
   * jdk 1.6.0
-  * tomcat 6.0 / jetty 6.1 
+  * tomcat 6.0 / jetty 7.2 
   * eclipse 3.5 (galileo)
   * maven 2.0
   
@@ -23,6 +23,6 @@ To build the app, use
 $ mvn    
 
 To run the webapp, copy houston.war to webapps folder in tomcat / jetty. 
-Else run it using the maven plugin ('mvn tomcat:run' OR 'mvn jetty:run') and 
-then point the browser @ http://localhost:8080/houston/
+Else run it using the maven plugin - 'mvn tomcat:run' (OR 'mvn jetty:run') 
+and then point the browser @ http://localhost:8080/topper/ (OR http://localhost:8080/)
 
