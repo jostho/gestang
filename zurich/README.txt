@@ -7,7 +7,7 @@ Zurich is a project to demonstrate a simple webapp using spring ws.
 Environment
 -------------
   * jdk 1.6.0
-  * tomcat 6.0 / jetty 6.1
+  * tomcat 6.0 / jetty 7.2
   * eclipse 3.5 (galileo)
   * maven 2.0
   * curl 7.20
@@ -22,8 +22,8 @@ To build the app, use
 $ mvn    
 
 To run the webapp, copy zurich.war to webapps folder in tomcat / jetty. 
-Else run it using the maven plugin ('mvn tomcat:run' OR 'mvn jetty:run') and 
-then fire requests @ http://localhost:8080/zurich/
+Else run it using the maven plugin - 'mvn tomcat:run' (OR 'mvn jetty:run') 
+and then point the browser @ http://localhost:8080/topper/ (OR http://localhost:8080/)
 
 
 JAXB classes
