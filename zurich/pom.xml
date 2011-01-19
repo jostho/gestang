@@ -76,7 +76,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.4</version>
+      <version>4.8.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -111,14 +111,9 @@
       <artifactId>spring-ws-core</artifactId>
       <version>${spring-ws.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.springframework.ws</groupId>
-      <artifactId>spring-oxm-tiger</artifactId>
-      <version>${spring-ws.version}</version>
-    </dependency>
   </dependencies>
   <properties>
-    <spring.version>2.5.6</spring.version>
-    <spring-ws.version>1.5.9</spring-ws.version>
+    <spring.version>3.0.5.RELEASE</spring.version>
+    <spring-ws.version>2.0.0.RELEASE</spring-ws.version>
   </properties>
 </project>

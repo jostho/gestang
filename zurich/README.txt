@@ -10,7 +10,7 @@ Environment
   * tomcat 6.0 / jetty 6.1
   * eclipse 3.5 (galileo)
   * maven 2.0
-  * curl 7.19
+  * curl 7.20
 
     
 Build
@@ -41,4 +41,4 @@ $ curl http://localhost:8080/zurich/getuser.wsdl
 Firing requests
 -----------------
 Requests can be fired through curl
-$ curl -H 'Content-type: text/xml' -d @src/test/resources/examples/GetUserRQ.xml http://localhost:8080/zurich/
+$ curl -i -H 'Content-type: text/xml' -d @src/test/resources/examples/GetUserRQ.xml http://localhost:8080/zurich/
