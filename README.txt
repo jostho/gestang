@@ -6,7 +6,7 @@ Environment
 -------------
     * JDK 1.6
     * Maven 2.0
-    * Tomcat 6.0 / Jetty 6.1
+    * Tomcat 6.0 / Jetty 7.2
     * Eclipse 3.5 (galileo)
 
 All projects requires maven 2 to build. The dependencies are pulled from the 
@@ -17,6 +17,8 @@ To setup the workspace for eclipse, run 'mvn eclipse:eclipse'. Then, import
 the projects into eclipse (import > existing projects into workspace). 
 You may also need to set the M2_REPO classpath variable (pointing to your 
 local maven2 repository) to get started. 
+
+To see the dependecy list for a project, run ' mvn dependency:tree'. 
 
 
 Monsoon
