@@ -27,13 +27,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <systemProperties>
+            <!-- override log4j.xml in classpath -->
             <property>
-              <name>catalina.home</name>
-              <value>${project.build.directory}</value>
-            </property>
-            <property>
-              <name>jetty.home</name>
-              <value>${project.build.directory}</value>
+              <name>log4j.configuration</name>
+              <value>log4j.properties</value>
             </property>
           </systemProperties> 
         </configuration>
