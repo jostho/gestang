@@ -18,7 +18,7 @@ the projects into eclipse (import > existing projects into workspace).
 You may also need to set the M2_REPO classpath variable (pointing to your 
 local maven2 repository) to get started. 
 
-To see the dependecy list for a project, run ' mvn dependency:tree'. 
+To see the dependency list for a project, run ' mvn dependency:tree'. 
 
 
 Monsoon
