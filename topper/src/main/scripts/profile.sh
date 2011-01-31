@@ -11,14 +11,7 @@
 SERVER=
 DATABASE=
 
-# print usage and exit
-usage() {
-  echo "Changes topper profile to the provided 'server' 'database' combination"
-  echo "Usage: $0 {tomcat|jetty} {mysql|postgresql}"
-  exit 2
-}
-
-# read server, 1st arg
+# read arguments
 case $1 in 
 tomcat|tc) 
   SERVER=tomcat
@@ -26,24 +19,44 @@ tomcat|tc)
 jetty|jt) 
   SERVER=jetty
   ;;
-esac
-
-# read database, 2nd arg
-case $2 in 
 mysql|my) 
   DATABASE=mysql
   ;; 
 postgresql|pg) 
   DATABASE=postgresql
   ;;
+tomcat-mysql|tc-my) 
+  SERVER=tomcat
+  DATABASE=mysql
+  ;; 
+tomcat-postgresql|tc-pg) 
+  SERVER=tomcat
+  DATABASE=postgresql
+  ;; 
+jetty-mysql|jt-my) 
+  SERVER=jetty
+  DATABASE=mysql
+  ;;
+jetty-postgresql|jt-pg) 
+  SERVER=jetty
+  DATABASE=postgresql
+  ;;
 esac
 
-# if either is null, print usage
-# TODO fix this to support just a single entity  
-if [ -z "$SERVER" -o -z "$DATABASE" ] ; then
+# function to print usage and exit
+usage() {
+  echo "Changes topper profile to the provided 'server' 'database' combination"
+  echo "Usage: $0 {tomcat|jetty|mysql|postgresql|tomcat-mysql|tomcat-postgresql|jetty-mysql|jetty-postgresql}"
+  exit 2
+}
+
+# if both are empty, print usage
+if [ -z "$SERVER" -a -z "$DATABASE" ] ; then
   usage
 fi 
 
+# print selected profile
+echo "Using $SERVER $DATABASE"
+
 # reach root from src/main/scripts/
 cd `dirname $0`/../../..
-
