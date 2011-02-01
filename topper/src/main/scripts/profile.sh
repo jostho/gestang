@@ -46,7 +46,7 @@ esac
 # function to print usage and exit
 usage() {
   echo "Changes topper profile to the provided 'server' 'database' combination"
-  echo "Usage: $0 {tomcat|jetty|mysql|postgresql|tomcat-mysql|tomcat-postgresql|jetty-mysql|jetty-postgresql}"
+  echo "Usage: $0 {tomcat|jetty|mysql|postgresql|tc-my|tc-pg|jt-my|jt-pg}"
   exit 2
 }
 
@@ -60,3 +60,53 @@ echo "Using $SERVER $DATABASE"
 
 # reach root from src/main/scripts/
 cd `dirname $0`/../../..
+
+
+#
+# server config
+#
+
+# change SERVER_NAME property in build.properties
+if [ "tomcat" == "$SERVER" ] ; then
+  sed -i 's/SERVER_NAME=.*/SERVER_NAME=catalina/' build.properties
+elif [ "jetty" == "$SERVER" ] ; then
+  sed -i 's/SERVER_NAME=.*/SERVER_NAME=jetty/' build.properties
+fi      
+
+
+#
+# database config
+#
+
+JDBCDRIVER=
+JDBCURL=
+
+if [ "mysql" == "$DATABASE" ] ; then
+  JDBCDRIVER="com.mysql.jdbc.Driver"
+  JDBCURL="jdbc:mysql:\/\/localhost:3306\/topper"
+
+  # hbm.xml change to remove postgres specific sequence
+  sed -i '/<param name="sequence">employees_id_seq/d' \
+        src/main/resources/org/jostho/topper/domain/employee.hbm.xml
+
+elif [ "postgresql" == "$DATABASE" ] ; then
+  JDBCDRIVER="org.postgresql.Driver"
+  JDBCURL="jdbc:postgresql:\/\/localhost:5432\/topper"
+
+  # hbm.xml change to add postgres specific sequence
+  sed -i '/generator class="native"/a \
+        <param name="sequence">employees_id_seq</param> ' \
+        src/main/resources/org/jostho/topper/domain/employee.hbm.xml
+fi
+
+if [ -n "$JDBCDRIVER" -a -n "$JDBCURL" ] ; then
+  sed -i -e "s/jdbc.driverClassName=.*/jdbc.driverClassName=$JDBCDRIVER/" \
+    -e "s/jdbc.url=.*/jdbc.url=$JDBCURL/" src/main/resources/jdbc.properties
+
+  # black magic using back references
+  sed -i -e "s/\(driverClassName=\"\).*\"/\1$JDBCDRIVER\"/" \
+    -e "s/\(url=\"\).*\"/\1$JDBCURL\"/" src/main/webapp/META-INF/context.xml
+  sed -i -e "s/\(driverClassName\">\).*</\1$JDBCDRIVER</" \
+    -e "s/\(url\">\).*</\1$JDBCURL</" src/main/webapp/WEB-INF/jetty-env.xml
+fi
+
