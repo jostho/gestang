@@ -53,6 +53,16 @@ Also copy the below 2 jars to $JETTY_HOME/lib/ext
 Start Jetty with 'ext,plus,annotations' options enabled 
 and 'etc/jetty-plus.xml' config file in start.ini. 
 
+
+Profile script
+----------------
+Topper supports 2 different databases and 2 different servers. The sources 
+are checked in tomcat + mysql profile. To change the profile you can use the 
+profile script in src/main/resources. e.g. if you need to change to postgresql  
+db, run './src/main/scripts/profile.sh pg'. Just run the script with no options to 
+see the usage. 
+
+
 TODO
 -----------  
   * Mandatory fields need to be validated in add/edit screen
