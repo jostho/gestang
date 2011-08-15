@@ -220,8 +220,8 @@
     <spring.version>3.0.5.RELEASE</spring.version>
     <jstl.version>1.1.2</jstl.version>
     <hibernate.version>3.6.1.Final</hibernate.version>
-    <mysql.connector.version>5.1.14</mysql.connector.version>
-    <postgresql.connector.version>8.4-702.jdbc4</postgresql.connector.version>
+    <mysql.connector.version>5.1.17</mysql.connector.version>
+    <postgresql.connector.version>9.0-801.jdbc4</postgresql.connector.version>
     <commons.dbcp.version>1.4</commons.dbcp.version>
   </properties>
 </project>

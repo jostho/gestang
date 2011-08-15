@@ -8,7 +8,7 @@ Environment
 -------------
   * jdk 1.6.0
   * tomcat 6.0 / jetty 7.2 
-  * mysql 5.1 / postgresql 8.4   
+  * mysql 5.5 / postgresql 9.0
   * eclipse 3.5 (galileo)
   * maven 2.0
 
@@ -39,14 +39,14 @@ src/test/resources/test-topper-datasource.xml .
 Tomcat
 --------
 Copy jdbc driver to to $TOMCAT_HOME/lib .
- * mysql-connector-java-5.1.14.jar (for mysql)
- * postgresql-8.4-702.jdbc4.jar (for postgresql)
+ * mysql-connector-java-5.1.17.jar (for mysql)
+ * postgresql-9.0-801.jdbc4.jar (for postgresql)
 
 Jetty
 -------
 Copy jdbc driver to to $JETTY_HOME/lib/ext .
- * mysql-connector-java-5.1.14.jar (for mysql)
- * postgresql-8.4-702.jdbc4.jar (for postgresql)
+ * mysql-connector-java-5.1.17.jar (for mysql)
+ * postgresql-9.0-801.jdbc4.jar (for postgresql)
 Also copy the below 2 jars to $JETTY_HOME/lib/ext
  * commons-dbcp-1.4.jar
  * commons-pool-1.5.4.jar
