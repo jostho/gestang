@@ -2,7 +2,7 @@
 -- supports both mysql and postgresql
 
 -- 
--- database: mysql 5.1
+-- database: mysql 5.5
 -- 
 
 -- create DB 
@@ -23,7 +23,7 @@ CREATE TABLE employees (
   email VARCHAR(60),
   designation VARCHAR(60),
   date_of_joining date
-) engine=InnoDB;
+) ;
 
 
 -- 
