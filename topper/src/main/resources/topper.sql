@@ -5,6 +5,8 @@
 -- database: mysql 5.5
 -- 
 
+-- connect to mysql as root
+
 -- create DB 
 CREATE DATABASE topper;
 
@@ -27,11 +29,14 @@ CREATE TABLE employees (
 
 
 -- 
--- database: postgresql 8.4
+-- database: postgresql 9.0
 -- 
 
+-- su as postgres user
+-- $ su - postgres
+
 -- create user
--- $ createuser -d -P topper
+-- $ createuser -d -P -R -S topper
 
 -- create db
 -- $ createdb -O topper topper
