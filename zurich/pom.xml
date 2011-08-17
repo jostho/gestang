@@ -48,7 +48,7 @@
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>7.2.2.v20101205</version>
+        <version>7.4.5.v20110725</version>
         <configuration>
           <systemProperties>
             <systemProperty>
@@ -112,6 +112,6 @@
   </dependencies>
   <properties>
     <spring.version>3.0.5.RELEASE</spring.version>
-    <spring-ws.version>2.0.0.RELEASE</spring-ws.version>
+    <spring-ws.version>2.0.2.RELEASE</spring-ws.version>
   </properties>
 </project>
