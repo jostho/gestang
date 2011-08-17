@@ -8,7 +8,7 @@ spring security.
 Environment
 -------------
   * jdk 1.6.0
-  * tomcat 6.0 / jetty 7.2 
+  * tomcat 7.0 / jetty 7.4
   * eclipse 3.5 (galileo)
   * maven 2.0
   
