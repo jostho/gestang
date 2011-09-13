@@ -7,7 +7,7 @@ Zurich is a project to demonstrate a simple webapp using spring ws.
 Environment
 -------------
   * jdk 1.6.0
-  * tomcat 7.0 / jetty 7.4
+  * tomcat 7.0 / jetty 8.0
   * eclipse 3.5 (galileo)
   * maven 2.0
   * curl 7.20
