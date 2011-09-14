@@ -6,7 +6,7 @@ Environment
 -------------
     * JDK 1.6
     * Maven 2.0
-    * Tomcat 6.0 / Jetty 7.2
+    * Tomcat 7.0 / Jetty 8.0
     * Eclipse 3.5 (galileo)
 
 All projects requires maven 2 to build. The dependencies are pulled from the 
