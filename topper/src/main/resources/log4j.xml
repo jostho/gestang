@@ -2,13 +2,13 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-  <!-- SERVER_NAME is parameterized to support tomcat & jetty deployments -->
-  <!-- See build.properties for options, replaced by the filter during maven build -->
+  <!-- 'File' param value needs to be customized for the running server  -->
+  <!-- For tomcat use - 'catalina.home' . For jetty use - 'jetty.home' -->
 
   <appender name="FileAppender" 
     class="org.apache.log4j.DailyRollingFileAppender">
     <param name="DatePattern" value="'.'yyyy-MM-dd" />
-    <param name="File" value="${@SERVER_NAME@.home}/logs/topper.log" />
+    <param name="File" value="${catalina.home}/logs/topper.log" />
     <param name="Append" value="true" />
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%d %-5p %t [%c] %m%n" />
@@ -18,7 +18,7 @@
   <appender name="SpringFileAppender" 
     class="org.apache.log4j.DailyRollingFileAppender">
     <param name="DatePattern" value="'.'yyyy-MM-dd" />
-    <param name="File" value="${@SERVER_NAME@.home}/logs/topper-spring.log" />
+    <param name="File" value="${catalina.home}/logs/topper-spring.log" />
     <param name="Append" value="true" />
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%d %-5p %t [%c] %m%n" />
@@ -28,7 +28,7 @@
   <appender name="HibernateFileAppender" 
     class="org.apache.log4j.DailyRollingFileAppender">
     <param name="DatePattern" value="'.'yyyy-MM-dd" />
-    <param name="File" value="${@SERVER_NAME@.home}/logs/topper-hibernate.log" />
+    <param name="File" value="${catalina.home}/logs/topper-hibernate.log" />
     <param name="Append" value="true" />
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%d %-5p %t [%c] %m%n" />

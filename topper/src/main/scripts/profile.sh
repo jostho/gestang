@@ -68,9 +68,9 @@ cd `dirname $0`/../../..
 
 # change SERVER_NAME property in build.properties
 if [ "tomcat" == "$SERVER" ] ; then
-  sed -i 's/SERVER_NAME=.*/SERVER_NAME=catalina/' build.properties
+  sed -i 's/{.*.home}/{catalina.home}/' src/main/resources/log4j.xml
 elif [ "jetty" == "$SERVER" ] ; then
-  sed -i 's/SERVER_NAME=.*/SERVER_NAME=jetty/' build.properties
+  sed -i 's/{.*.home}/{jetty.home}/' src/main/resources/log4j.xml
 fi      
 
 
