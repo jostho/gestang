@@ -10,7 +10,7 @@ Environment
   * tomcat 7.0 / jetty 8.0
   * mysql 5.5 / postgresql 9.0
   * eclipse 3.5 (galileo)
-  * maven 2.0
+  * maven 3.0
 
   
 Build
