@@ -9,7 +9,7 @@ Environment
   * jdk 1.6.0
   * tomcat 7.0 / jetty 8.0
   * eclipse 3.5 (galileo)
-  * maven 2.0
+  * maven 3.0
   * curl 7.20
 
     
@@ -42,3 +42,11 @@ Firing requests
 -----------------
 Requests can be fired through curl
 $ curl -i -H 'Content-type: text/xml' -d @src/test/resources/examples/GetUserRQ.xml http://localhost:8080/zurich/
+
+
+Web server
+--------------
+For tomcat
+$ sed -i 's/{.*.home}/{catalina.home}/' src/main/resources/log4j.xml
+For jetty
+$ sed -i 's/{.*.home}/{jetty.home}/' src/main/resources/log4j.xml
