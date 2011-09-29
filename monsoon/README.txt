@@ -8,7 +8,7 @@ you with the weather in a particular city :-)
 Environment
 -------------
   1. jdk 1.6.0
-  2. maven 2.0 
+  2. maven 3.0
   3. eclipse 3.5 (galileo)
 
 
