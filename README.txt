@@ -5,7 +5,7 @@ This project provides sample code to get started with spring.
 Environment
 -------------
     * JDK 1.6
-    * Maven 2.0
+    * Maven 3.0
     * Tomcat 7.0 / Jetty 8.0
     * Eclipse 3.5 (galileo)
 
