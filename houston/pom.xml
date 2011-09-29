@@ -10,13 +10,11 @@
   <build> 
     <defaultGoal>package</defaultGoal>
     <finalName>houston</finalName>  
-    <filters> 
-      <filter>build.properties</filter> 
-    </filters> 
     <plugins> 
       <plugin> 
         <groupId>org.apache.maven.plugins</groupId>  
         <artifactId>maven-compiler-plugin</artifactId>  
+        <version>2.3.2</version>
         <configuration> 
           <source>1.6</source>  
           <target>1.6</target> 
@@ -24,7 +22,13 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.9</version>
         <configuration>
           <systemProperties>
             <!-- override log4j.xml in classpath -->
@@ -63,12 +67,6 @@
         </configuration>
       </plugin>
     </plugins>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
   </build>  
   <dependencies>
     <dependency>
